@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style_img.css">
+</head>
+
+
+<body>
+    <div>
+        <div>
+            <a href=""><img src="image/logo.jpg" alt="" class="logo"></a>
+            <h1>QUẢN LÝ LINH KIỆN ĐIỆN TỬ</h1>
+        </div>
+        <div>
+            <table border="1" id="tblist1">
+                <tr>
+                    <td colspan="6">
+                        <input type="text" id="keyword" oninput="search()" value="Seacrch">
+                    </td>
+                </tr>
+                <tr>
+                    <th id="thlist" colspan="6">Danh sách linh kiện</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Linh kiện</th>
+                    <th>Hình ảnh</th>
+                    <th>Phân loại</th>
+                    <th>Thông tin</th>
+                    <th>Tùy chọn</th>
+                </tr>
+                <tbody id="list-components"></tbody>
+                </tbody>
+            </table>
+            
+            <div>
+                <table border="1" id="tblist2">
+                    <tbody>
+                        <tr class="info1">
+                            <th colspan="2">Thông tin linh kiện</th>
+                        </tr>
+                        <tr>
+                            <th>ID</th>
+                            <td><input type="number" id="id_name"></td>
+                        </tr>
+                        <tr>
+                            <th>Linh kiện</th>
+                            <td><input type="text" id="name"></td>
+                        </tr>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <td><input type="text" id="img"></td>
+                        </tr>
+                        <tr>
+                            <th>Phân loại</th>
+                            <td><input type="text" id="classify"></td>
+                        </tr>
+                        <tr>
+                            <th>Chi tiết</th>
+                            <td><input type="text" id="info"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <button style="background-color: limegreen" id="add"
+                                    onclick="addComponents()">Add</button>
+                                <button style="background-color: gold" id="edit"
+                                    onclick="updateComponents()">Save</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div> 
+    <script src="javascript/index.js"></script>
+    <script src="javascript/list.js"></script>
+</body>
+
+</html>
