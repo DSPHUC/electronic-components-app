@@ -10,11 +10,11 @@ class Components {
         this.id_name = id_name;
     }
     getID_name(id_name) {
-        thí.id_name = id_name;
+        this.id_name = id_name;
     }
 }
 
-let electric = [];
+var electric = [];
 
 function init() {
     if (window.localStorage.getItem('electric') == null) {
@@ -77,6 +77,13 @@ function updateComponents() {
 
 function addComponents() {
     let id_name = document.getElementById('id_name').value;
+
+    for (let i = 0; i < electric.length; i++) {
+        if (id_name[i] == electric.id_name) {
+            alert("ID đã trùng --- Vui lòng nhập lại")
+            break;
+        }
+    }
     let name = document.getElementById('name').value;
     let img = document.getElementById('img').value;
     let classify = document.getElementById('classify').value;
@@ -117,5 +124,10 @@ function removeComponents(name) {
     }
 }
 
+// function checkID(id_name) {
+//     let id_name = document.getElementById("id_name").value;
+
+
+// }
 init();
 renderComponents(electric);
