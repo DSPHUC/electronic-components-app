@@ -77,20 +77,23 @@ function updateComponents() {
 
 function addComponents() {
     let id_name = document.getElementById('id_name').value;
-
-    for (let i = 0; i < electric.length; i++) {
-        if (id_name[i] == electric.id_name) {
-            alert("ID đã trùng --- Vui lòng nhập lại")
-            break;
-        }
-    }
     let name = document.getElementById('name').value;
     let img = document.getElementById('img').value;
     let classify = document.getElementById('classify').value;
     let info = document.getElementById('info').value;
     let newComponents = new Components(id_name, name, img, classify, info);
-    electric.push(newComponents);
+
+    for (let i = 0; i < electric.length; i++) {
+        if (id_name[i] == electric.id_name) {
+            alert("ID đã trùng --- Vui lòng nhập lại")
+            return;
+            
+        }
+    } 
+    
     window.localStorage.setItem('electric', JSON.stringify(electric))
+    electric.push(newComponents);
+
     renderComponents(electric);
 }
 
@@ -124,10 +127,5 @@ function removeComponents(name) {
     }
 }
 
-// function checkID(id_name) {
-//     let id_name = document.getElementById("id_name").value;
-
-
-// }
 init();
 renderComponents(electric);
