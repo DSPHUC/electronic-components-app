@@ -39,7 +39,7 @@ function renderComponents(data) {
                 <td>${components.classify}</td>
                 <td>${components.info}</td>
                 <td>
-                    <button class='click' onclick='removeComponents("${components.name}" )'>Remove</button>
+                    <button class='click' onclick='removeComponents("${components.id_name}" )'>Remove</button>
                     <button class='click' onclick='editComponents("${components.name}" )'>Edit</button>
                 </td>
             </tr>
@@ -107,20 +107,13 @@ function search() {
     renderComponents(result)
 }
 
-function remove() {
-    let name = document.getElementById('findComponents').value;
-    let result = electric.filter(function (elt) {
-        return elt.name != name;
-    })
-    window.localStorage.setItem('electric', JSON.stringify(result));
-    renderComponents(result)
-}
 
-function removeComponents(name) {
+
+function removeComponents(id_name) {
     let confirmed = window.confirm('Are you sure ? ');
     if (confirmed == true) {
         let result = electric.filter(function (elt) {
-            return elt.name != name;
+            return elt.id_name != id_name;
         })
         window.localStorage.setItem('electric', JSON.stringify(result))
         renderComponents(result)
