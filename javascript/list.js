@@ -82,15 +82,15 @@ function addComponents() {
     let classify = document.getElementById('classify').value;
     let info = document.getElementById('info').value;
     let newComponents = new Components(id_name, name, img, classify, info);
-
     for (let i = 0; i < electric.length; i++) {
-        if (id_name[i] == electric.id_name) {
+
+        if (id_name == electric[i].id_name) {
             alert("ID đã trùng --- Vui lòng nhập lại")
             return;
-            
         }
-    } 
-    
+
+    }
+
     window.localStorage.setItem('electric', JSON.stringify(electric))
     electric.push(newComponents);
 
