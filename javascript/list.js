@@ -27,6 +27,7 @@ function init() {
 }
 
 function renderComponents(data) {
+
     let htmls = data.map(function (components) {
         return `
             <tr>
@@ -100,11 +101,18 @@ function addComponents() {
 function search() {
     let keyword = document.getElementById('keyword').value;
     let result = electric.filter(function (elt) {
-        return elt.name.toLowerCase().includes(keyword.toLowerCase()),
-            elt.classify.toLowerCase().includes(keyword.toLowerCase()),
-            elt.info.toLowerCase().includes(keyword.toLowerCase())
-    })
-    renderComponents(result)
+
+        if (elt.name.toLowerCase().includes(keyword.toLowerCase()) ||
+
+            elt.classify.toLowerCase().includes(keyword.toLowerCase()) ||
+
+            elt.info.toLowerCase().includes(keyword.toLowerCase())) {
+            return elt;
+        }
+
+    }
+    )
+    renderComponents(result);
 }
 
 
@@ -115,8 +123,9 @@ function removeComponents(id_name) {
         let result = electric.filter(function (elt) {
             return elt.id_name != id_name;
         })
-        window.localStorage.setItem('electric', JSON.stringify(result))
-        renderComponents(result)
+        electric = result;
+        window.localStorage.setItem('electric', JSON.stringify(result));
+        renderComponents(result);
     }
 }
 
